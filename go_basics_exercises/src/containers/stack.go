@@ -39,6 +39,7 @@ func InitStack(cap uint) Stack {
 	}
 }
 
+// 访问栈顶元素
 func (stk *Stack) Top() (bool, Item) {
 	if stk.Size == 0 {
 		return false, nil
@@ -46,6 +47,7 @@ func (stk *Stack) Top() (bool, Item) {
 	return true, stk.rawData[stk.Size-1]
 }
 
+// 向栈顶插入元素
 func (stk *Stack) Push(elem Item) bool {
 	if stk.Size >= stk.Cap {
 		return false
@@ -55,6 +57,7 @@ func (stk *Stack) Push(elem Item) bool {
 	return true
 }
 
+// 弹出栈顶元素
 func (stk *Stack) Pop() (bool, Item) {
 	if stk.Size == 0 {
 		return false, nil
