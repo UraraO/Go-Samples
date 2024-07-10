@@ -1,9 +1,11 @@
 package calculator
 
 import (
+	"context"
 	"strconv"
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -55,4 +57,20 @@ func TestSubs(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestAddInDB(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockDB := NewMockDB(ctrl)
+
+	ctx := context.Background()
+	lhs, rhs := 1, 1
+
+	mockDB.EXPECT().CreateCalc(ctx, lhs, rhs).Return(nil)
+
+	err := AddInDB(ctx, mockDB, lhs, rhs)
+
+	assert.NoError(t, err)
 }
