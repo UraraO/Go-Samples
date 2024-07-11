@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	bus "go_basics_exercises/src/bus_module"
 	"strings"
-	"time"
 	"unicode/utf8"
 )
 
@@ -29,19 +27,40 @@ func main() {
 	// MapFuncTest()
 
 	//附加题
-	hdl := bus.NormalHandler{}
-	Bus := bus.InitBusModule()
-	event := bus.InitEvent(bus.EVENT_TYPE_DEBUG, "bus test")
+	// hdl := bus.NormalHandler{}
+	// Bus := bus.InitBusModule()
+	// event := bus.InitEvent(bus.EVENT_TYPE_DEBUG, "bus test")
 
-	debug1 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
-	debug2 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
-	info1 := Bus.RegisterEventListener(bus.EVENT_TYPE_INFO, hdl)
+	// debug1 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
+	// debug2 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
+	// info1 := Bus.RegisterEventListener(bus.EVENT_TYPE_INFO, hdl)
 
-	Bus.Publish(event)
-	time.Sleep(time.Second * 3)
-	Bus.RemoveEventListener(debug1)
-	Bus.RemoveEventListener(debug2)
-	Bus.RemoveEventListener(info1)
+	// Bus.Publish(event)
+	// time.Sleep(time.Second * 3)
+	// Bus.RemoveEventListener(debug1)
+	// Bus.RemoveEventListener(debug2)
+	// Bus.RemoveEventListener(info1)
+
+	// 缓存测试
+	// c := cache.InitCache(2)
+
+	// c.Put("key1", "value1", 2*time.Second)
+	// c.Put("key2", "value2", 2*time.Second)
+
+	// // Retrieve items
+	// val, found := c.Get("key1")
+	// if found {
+	// 	fmt.Println("Found key1:", val)
+	// }
+
+	// // Wait for expiration
+	// time.Sleep(3 * time.Second)
+
+	// // Check if expired
+	// _, found = c.Get("key1")
+	// if !found {
+	// 	fmt.Println("Key1 not found or expired")
+	// }
 }
 
 // 流程控制
