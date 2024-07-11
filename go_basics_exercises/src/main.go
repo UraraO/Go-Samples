@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+
+	// cache "go_basics_exercises/src/cache_module"
+
 	"strings"
 	"unicode/utf8"
 )
@@ -47,20 +50,34 @@ func main() {
 	// c.Put("key1", "value1", 2*time.Second)
 	// c.Put("key2", "value2", 2*time.Second)
 
-	// // Retrieve items
 	// val, found := c.Get("key1")
 	// if found {
 	// 	fmt.Println("Found key1:", val)
 	// }
 
-	// // Wait for expiration
+	// c.Delete("key2")
+	// _, found = c.Get("key2")
+	// if !found {
+	// 	fmt.Println("key2 Not Found")
+	// }
+
 	// time.Sleep(3 * time.Second)
 
-	// // Check if expired
 	// _, found = c.Get("key1")
 	// if !found {
 	// 	fmt.Println("Key1 not found or expired")
 	// }
+
+	// c.Put("key1", "value1", 2*time.Second)
+	// c.Put("key2", "value2", 2*time.Second)
+	// ok3 := c.Put("key3", "value3", 2*time.Second)
+	// if !ok3 {
+	// 	fmt.Println("Key3 put failed")
+	// }
+
+	arr := [...]int{1, 2, 3, 4, 5}
+	s1 := arr[0:2]
+	s2 := s1[0:1]
 }
 
 // 流程控制

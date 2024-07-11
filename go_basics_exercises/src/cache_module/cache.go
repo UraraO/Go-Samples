@@ -11,14 +11,14 @@ type elem struct {
 }
 
 type Cache struct {
-	Elems     map[string]elem
+	elems     map[string]elem
 	dataMutex sync.Mutex
 	Capacity  uint
 }
 
 func InitCache(cap uint) Cache {
 	return Cache{
-		Elems:     make(map[string]elem),
+		elems:     make(map[string]elem),
 		dataMutex: sync.Mutex{},
 		Capacity:  cap,
 	}
@@ -26,40 +26,42 @@ func InitCache(cap uint) Cache {
 
 func (c *Cache) Get(key string) (interface{}, bool) {
 	c.dataMutex.Lock()
-	val, ok := c.Elems[key]
+	defer c.dataMutex.Unlock()
+	val, ok := c.elems[key]
 	if !ok {
 		return nil, false
 	}
 	if time.Now().After(val.ExpireTime) {
-		delete(c.Elems, key)
+		delete(c.elems, key)
 		return nil, false
 	}
-	c.dataMutex.Unlock()
 	return val, true
 }
 
 func (c *Cache) Put(key string, val interface{}, dur time.Duration) bool {
 	c.dataMutex.Lock()
-	if len(c.Elems) == int(c.Capacity) {
-		for k, v := range c.Elems {
+	defer c.dataMutex.Unlock()
+	if len(c.elems) == int(c.Capacity) {
+		for k, v := range c.elems {
 			if time.Now().After(v.ExpireTime) {
-				delete(c.Elems, k)
+				delete(c.elems, k)
 			}
 		}
 	}
-	elem, ok := c.Elems[key]
-	if len(c.Elems) == int(c.Capacity) && !ok { // 缓存仍满，且元素不在缓存中，插入失败
+	_, ok := c.elems[key]
+	if len(c.elems) == int(c.Capacity) && !ok { // 缓存仍满，且元素不在缓存中，插入失败
 		return false
 	}
-	elem.ExpireTime = time.Now().Add(dur)
-	elem.Val = val
-	c.Elems[key] = elem
-	c.dataMutex.Unlock()
+	elem := elem{
+		Val:        val,
+		ExpireTime: time.Now().Add(dur),
+	}
+	c.elems[key] = elem
 	return true
 }
 
 func (c *Cache) Delete(key string) {
 	c.dataMutex.Lock()
-	delete(c.Elems, key)
-	c.dataMutex.Unlock()
+	defer c.dataMutex.Unlock()
+	delete(c.elems, key)
 }
