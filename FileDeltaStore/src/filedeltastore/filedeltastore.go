@@ -15,6 +15,7 @@ type FileDeltaStore struct {
 	deltar rsync.RSync
 }
 
+// 新建FDS差分存储工具，调用方指定block大小
 func NewFileDeltaStore(blocksize int) *FileDeltaStore {
 	return &FileDeltaStore{
 		r: rsync.RSync{
@@ -24,6 +25,7 @@ func NewFileDeltaStore(blocksize int) *FileDeltaStore {
 	}
 }
 
+// 新建签名文件，提供源文件名和输出的签名文件名
 func (fds *FileDeltaStore) CreateSigFile(baseFile, sigFile string) error {
 	// here we store the whole signature in a byte slice,
 	// but it could just as well be sent over a network connection for example
@@ -48,6 +50,7 @@ func (fds *FileDeltaStore) CreateSigFile(baseFile, sigFile string) error {
 	return nil
 }
 
+// 新建差分文件，提供改动过后的新文件名，签名文件名和输出的差分文件名
 func (fds *FileDeltaStore) CreateDeltaFile(sigFile, newFile, deltaFile string) error {
 
 	opsOut := make(chan rsync.Operation)
@@ -119,6 +122,7 @@ func (fds *FileDeltaStore) CreateDeltaFile(sigFile, newFile, deltaFile string) e
 	return nil
 }
 
+// 重建文件，提供源文件名，差分文件名，和输出的重建新文件名
 func (fds *FileDeltaStore) RebuildNewFile(baseFile, deltaFile, rebuildFile string) error {
 	result := new(bytes.Buffer)
 
@@ -163,6 +167,7 @@ func (fds *FileDeltaStore) RebuildNewFile(baseFile, deltaFile, rebuildFile strin
 	return nil
 }
 
+// 将blockhash写入文件
 func transBlockHashtoFile(sigFile string, sigs []rsync.BlockHash) error {
 	sigF, err := os.OpenFile(sigFile, os.O_CREATE|os.O_WRONLY, os.ModePerm)
 	if err != nil {
@@ -185,6 +190,7 @@ func transBlockHashtoFile(sigFile string, sigs []rsync.BlockHash) error {
 	return nil
 }
 
+// 读取sig文件，转换为blockhash
 func transFiletoBlockHash(sigFile string) (blockhash []rsync.BlockHash, err error) {
 	sigF, err := os.OpenFile(sigFile, os.O_RDONLY, os.ModePerm)
 	if err != nil {
@@ -204,6 +210,7 @@ func transFiletoBlockHash(sigFile string) (blockhash []rsync.BlockHash, err erro
 	}
 }
 
+// 将差分操作写入文件
 func transOpstoFile(deltaFile string, opsch chan rsync.Operation) error {
 	deltaF, err := os.OpenFile(deltaFile, os.O_CREATE|os.O_WRONLY, os.ModePerm)
 	if err != nil {
@@ -260,6 +267,7 @@ func transOpstoFile(deltaFile string, opsch chan rsync.Operation) error {
 	return nil
 }
 
+// 读取差分操作文件，转为差分operations
 func transFiletoOps(deltaFile string) (ops []rsync.Operation, err error) {
 	deltaF, err := os.OpenFile(deltaFile, os.O_RDONLY, os.ModePerm)
 	if err != nil {

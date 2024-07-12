@@ -25,6 +25,9 @@ var (
 	outfile string
 )
 
+// 最基础的切分文件函数
+// 传入需要切分的源文件名
+// 输出分块数量
 func Split(infile string) int {
 	if infile == "" {
 		panic("请输入正确的文件名")
@@ -68,6 +71,9 @@ func Split(infile string) int {
 	return int(num)
 }
 
+// 最基础的合并文件函数
+// 传入输出文件名
+// 输出分块数量
 func Merge(outfile string) int {
 	fii, err := os.OpenFile(outfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
 	if err != nil {
@@ -100,6 +106,9 @@ func Merge(outfile string) int {
 	return len(part_list)
 }
 
+// 切分加密文件函数
+// 传入需要切分的源文件名
+// 输出分块数量
 func SplitEnc(infile string) int {
 	if infile == "" {
 		panic("请输入正确的文件名")
@@ -144,6 +153,9 @@ func SplitEnc(infile string) int {
 	return int(num)
 }
 
+// 合并加密文件函数
+// 传入输出文件名
+// 输出分块数量
 func MergeEnc(outfile string) int {
 	fii, err := os.OpenFile(outfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
 	if err != nil {
@@ -177,6 +189,10 @@ func MergeEnc(outfile string) int {
 	return len(part_list)
 }
 
+// 切分文件并加密
+// 传入需要切分的源文件名和加密器
+// 输出分块数量
+// 保存的小文件是切分后再加密的文件
 func SplitSourceToEnc(infile string, encryptor Encryptor) int {
 	if infile == "" {
 		panic("请输入正确的文件名")
@@ -228,6 +244,10 @@ func SplitSourceToEnc(infile string, encryptor Encryptor) int {
 	return int(num)
 }
 
+// 合并加密小文件并解密成源文件
+// 传入输出文件名和解密器
+// 输出分块数量
+// 保存的文件是合并加密小文件后再解密的源文件
 func MergeEncToSource(outfile string, encryptor Encryptor) int {
 	fii, err := os.OpenFile(outfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
 	if err != nil {
@@ -267,6 +287,11 @@ func MergeEncToSource(outfile string, encryptor Encryptor) int {
 	return len(part_list)
 }
 
+// 合并加密小文件并解密成源文件，并通过http连接发送
+// 传入输出文件名和解密器
+// 输出分块数量
+// 保存的文件是合并加密小文件后再解密的源文件
+// 最终会删除源文件，防止明文留档
 func MergeEncToSourceWriteHttp(outfile string, encryptor Encryptor, w http.ResponseWriter) int {
 	fii, err := os.OpenFile(outfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
 	if err != nil {

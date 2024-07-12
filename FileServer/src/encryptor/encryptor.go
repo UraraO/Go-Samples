@@ -153,7 +153,9 @@ func SplitUploadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// 将源文件切分为加密小文件
 	filespliter.SplitSourceToEnc(fileheader.Filename, encryptor)
+	// 加密小文件合并为加密大文件，再删除中间过程的加密小文件
 	filespliter.MergeEnc(fileheader.Filename + ".enc")
 	// // 切分Split源文件，修改下方读取和加密，改为批量，获取批量加密文件
 	// // 修改存储，将批量加密后的文件Merge为完整加密文件
@@ -219,6 +221,7 @@ func SplitDownloadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// 加密文件切分为加密小文件
 	filespliter.SplitEnc(filePath + ".enc")
 
 	// // 切分Split加密文件，修改下方读取和解密，改为批量，获取批量解密文件
@@ -241,6 +244,7 @@ func SplitDownloadHandler(w http.ResponseWriter, r *http.Request) {
 	// 设置响应头
 	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=\"%s\"", filePath))
 	w.Header().Set("Content-Type", "application/octet-stream")
+	// 加密小文件合并为加密大文件，再解密并发送，中间过程的加密小文件和源文件不保留，直接通过http发送
 	filespliter.MergeEncToSourceWriteHttp(filePath, encryptor, w)
 	// w.Write(decryptedData)
 }
