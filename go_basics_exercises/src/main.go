@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	// cache "go_basics_exercises/src/cache_module"
@@ -75,9 +76,19 @@ func main() {
 	// 	fmt.Println("Key3 put failed")
 	// }
 
-	arr := [...]int{1, 2, 3, 4, 5}
-	s1 := arr[0:2]
-	s2 := s1[0:1]
+	//slice切片转json
+	sliceData := make([]interface{}, 0)
+	sliceData = append(sliceData, "沉默小管")
+	sliceData = append(sliceData, 18)
+	fmt.Println(sliceData)
+	bytes1, _ := json.Marshal(sliceData)
+	stringData1 := string(bytes1)
+	fmt.Println(stringData1)
+
+	var result1 []interface{}
+	//json转为slice数据结构
+	json.Unmarshal([]byte(stringData1), &result1)
+	fmt.Println(result1, "--slice")
 }
 
 // 流程控制

@@ -223,6 +223,7 @@ func SplitSourceToEnc(infile string, encryptor Encryptor) int {
 		f.Close()
 	}
 	fi.Close()
+	os.Remove(infile) ////////////////////////////////////////
 	fmt.Println("拆分完成")
 	return int(num)
 }
@@ -303,6 +304,7 @@ func MergeEncToSourceWriteHttp(outfile string, encryptor Encryptor, w http.Respo
 		fmt.Printf("合并%d个\n", i)
 	}
 	fii.Close()
+	os.Remove(fii.Name()) ////////////////////////////////////////
 	fmt.Println("合并成功")
 	return len(part_list)
 }

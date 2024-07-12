@@ -140,6 +140,19 @@ func SplitUploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
+	// 读取文件内容
+	fileData, err := ioutil.ReadAll(file)
+	if err != nil {
+		http.Error(w, "Failed to read file data", http.StatusInternalServerError)
+		return
+	}
+
+	err = ioutil.WriteFile("./"+fileheader.Filename, fileData, 0644)
+	if err != nil {
+		http.Error(w, "Failed to save file", http.StatusInternalServerError)
+		return
+	}
+
 	filespliter.SplitSourceToEnc(fileheader.Filename, encryptor)
 	filespliter.MergeEnc(fileheader.Filename + ".enc")
 	// // 切分Split源文件，修改下方读取和加密，改为批量，获取批量加密文件
