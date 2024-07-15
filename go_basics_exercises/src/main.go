@@ -1,10 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	bus "go_basics_exercises/src/bus_module"
+
+	// cache "go_basics_exercises/src/cache_module"
+
 	"strings"
-	"time"
 	"unicode/utf8"
 )
 
@@ -29,19 +31,64 @@ func main() {
 	// MapFuncTest()
 
 	//附加题
-	hdl := bus.NormalHandler{}
-	Bus := bus.InitBusModule()
-	event := bus.InitEvent(bus.EVENT_TYPE_DEBUG, "bus test")
+	// hdl := bus.NormalHandler{}
+	// Bus := bus.InitBusModule()
+	// event := bus.InitEvent(bus.EVENT_TYPE_DEBUG, "bus test")
 
-	debug1 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
-	debug2 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
-	info1 := Bus.RegisterEventListener(bus.EVENT_TYPE_INFO, hdl)
+	// debug1 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
+	// debug2 := Bus.RegisterEventListener(bus.EVENT_TYPE_DEBUG, hdl)
+	// info1 := Bus.RegisterEventListener(bus.EVENT_TYPE_INFO, hdl)
 
-	Bus.Publish(event)
-	time.Sleep(time.Second * 3)
-	Bus.RemoveEventListener(debug1)
-	Bus.RemoveEventListener(debug2)
-	Bus.RemoveEventListener(info1)
+	// Bus.Publish(event)
+	// time.Sleep(time.Second * 3)
+	// Bus.RemoveEventListener(debug1)
+	// Bus.RemoveEventListener(debug2)
+	// Bus.RemoveEventListener(info1)
+
+	// 缓存测试
+	// c := cache.InitCache(2)
+
+	// c.Put("key1", "value1", 2*time.Second)
+	// c.Put("key2", "value2", 2*time.Second)
+
+	// val, found := c.Get("key1")
+	// if found {
+	// 	fmt.Println("Found key1:", val)
+	// }
+
+	// c.Delete("key2")
+	// _, found = c.Get("key2")
+	// if !found {
+	// 	fmt.Println("key2 Not Found")
+	// }
+
+	// time.Sleep(3 * time.Second)
+
+	// _, found = c.Get("key1")
+	// if !found {
+	// 	fmt.Println("Key1 not found or expired")
+	// }
+
+	// c.Put("key1", "value1", 2*time.Second)
+	// c.Put("key2", "value2", 2*time.Second)
+	// ok3 := c.Put("key3", "value3", 2*time.Second)
+	// if !ok3 {
+	// 	fmt.Println("Key3 put failed")
+	// }
+
+	//slice切片转json
+	sliceData := make([]interface{}, 0)
+	sliceData = append(sliceData, "沉默小管")
+	sliceData = append(sliceData, 18)
+	fmt.Println(sliceData)
+	bytes1, _ := json.Marshal(sliceData)
+	stringData1 := string(bytes1)
+	fmt.Println(stringData1)
+
+	var result1 []interface{}
+	//json转为slice数据结构
+	json.Unmarshal([]byte(stringData1), &result1)
+	fmt.Println(result1, "--slice")
 }
 
 // 流程控制
