@@ -1,8 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	msgqueue "go_basics_exercises/src/mq"
 
 	// cache "go_basics_exercises/src/cache_module"
 
@@ -76,19 +76,18 @@ func main() {
 	// 	fmt.Println("Key3 put failed")
 	// }
 
-	//slice切片转json
-	sliceData := make([]interface{}, 0)
-	sliceData = append(sliceData, "沉默小管")
-	sliceData = append(sliceData, 18)
-	fmt.Println(sliceData)
-	bytes1, _ := json.Marshal(sliceData)
-	stringData1 := string(bytes1)
-	fmt.Println(stringData1)
-
-	var result1 []interface{}
-	//json转为slice数据结构
-	json.Unmarshal([]byte(stringData1), &result1)
-	fmt.Println(result1, "--slice")
+	// s1 := make([]int, 0, 2)
+	// s1 = append(s1, 1)
+	// s2 := append(s1, 1)
+	// s3 := s1[1:2]
+	// s2 = append(s2, 2, 3)
+	// fmt.Println(s1, s2, s3, len(s1), cap(s3))
+	// a := [5]int{1, 2, 3, 4, 5}
+	// b := a[0:3]
+	// fmt.Println(cap(b))
+	// b = append(b, 6)
+	// fmt.Println(a, b, len(b), cap(b))
+	msgqueue.MQTest()
 }
 
 // 流程控制
