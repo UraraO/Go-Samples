@@ -174,14 +174,6 @@ func transBlockHashtoFile(sigFile string, sigs []rsync.BlockHash) error {
 		panic(err)
 	}
 
-	// for _, sig := range sigs {
-	// 	sigB, _ := json.Marshal(sig)
-	// 	if _, err = sigF.Write(sigB); err != nil {
-	// 		fmt.Println("Writefile Error =", err)
-	// 		return err
-	// 	}
-	// }
-
 	sigsB, _ := json.Marshal(sigs)
 	if _, err = sigF.Write(sigsB); err != nil {
 		fmt.Println("Writefile Error =", err)
