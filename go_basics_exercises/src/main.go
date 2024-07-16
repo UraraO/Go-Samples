@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	msgqueue "go_basics_exercises/src/mq"
+	timeoutcontrol "go_basics_exercises/src/timeout_control"
 
 	// cache "go_basics_exercises/src/cache_module"
 
@@ -87,7 +87,13 @@ func main() {
 	// fmt.Println(cap(b))
 	// b = append(b, 6)
 	// fmt.Println(a, b, len(b), cap(b))
-	msgqueue.MQTest()
+
+	//
+	// msgqueue.MQTest()
+
+	// timeoutcontrol.SlowQuery()
+	// timeoutcontrol.TimerTest()
+	timeoutcontrol.ContextTest()
 }
 
 // 流程控制
