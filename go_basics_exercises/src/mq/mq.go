@@ -56,7 +56,11 @@ func InitMsgQueue(opts ...Option) *MsgQueue {
 	for _, opt := range opts {
 		opt(mq)
 	}
-	mq.queue = make(chan Message, mq.Cap)
+	if mq.Cap == 0 {
+		mq.queue = make(chan Message)
+	} else {
+		mq.queue = make(chan Message, mq.Cap)
+	}
 	go mq.Run()
 	return mq
 }
@@ -116,7 +120,8 @@ func (mq *MsgQueue) RegisterConsumer(topic string, handler handler) int {
 }
 
 // 移除消费者
-// 并发问题：创建消费者后立即删除，可能导致接收不到极短时间内的消息
+// 并发问题：创建消费者后立即删除，可能发生极短时间内的消息Send触发send to closed channel
+// 修正：延迟删除，以防止并发冲突
 func (mq *MsgQueue) RemoveConsumer(topic string, id int) {
 	mq.regMut.Lock()
 	defer mq.regMut.Unlock()

@@ -1,0 +1,5 @@
+- 使用go fmt格式化代码，观察go_fmt文件的变化
+- 使用go vet检测代码问题，观察输出内容
+- 使用go tool vet help，查看所有检查项目，挑选任意三个项目，编造代码，使得go vet命令检测出问题
+- 使用上节提到的go install安装goimports，go install golang.org/x/tools/cmd/goimports@latest
+- 使用goimports -d ./go_imports.go，查看自动导入的结果，添加-d命令查看具体差异

@@ -1,0 +1,7 @@
+- 新建名称为main的模块
+- 添加第三方包github.com/sirupsen/logrus
+- 新建go文件使用第三方包打印任意日志
+- 运行成功后，在go.mod中删除github.com/sirupsen/logrus整行依赖信息
+- 运行go mod tidy，查看go.mod变化
+- 使用go install安装当前包
+- 运行在gopath目录下安装的二进制包

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	msgqueue "go_basics_exercises/src/mq"
+	gctracetest "go_basics_exercises/src/gctrace_test"
 
 	// cache "go_basics_exercises/src/cache_module"
 
@@ -87,7 +87,17 @@ func main() {
 	// fmt.Println(cap(b))
 	// b = append(b, 6)
 	// fmt.Println(a, b, len(b), cap(b))
-	msgqueue.MQTest()
+
+	//
+	// msgqueue.MQTest()
+
+	// 超时控制
+	// timeoutcontrol.SlowQuery()
+	// timeoutcontrol.TimerTest()
+	// timeoutcontrol.ContextTest()
+
+	// GC Trace
+	gctracetest.GCTraceTest()
 }
 
 // 流程控制

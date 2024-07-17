@@ -1,0 +1,4 @@
+- go install github.com/golang/mock/mockgen@v1.6.0 安装mock工具
+- go generate 生成mock代码
+- go test 运行测试
+- 研究一下gomonkey的使用方法https://github.com/agiledragon/gomonkey
