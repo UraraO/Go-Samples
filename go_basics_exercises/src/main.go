@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	timeoutcontrol "go_basics_exercises/src/timeout_control"
+	gctracetest "go_basics_exercises/src/gctrace_test"
 
 	// cache "go_basics_exercises/src/cache_module"
 
@@ -91,9 +91,13 @@ func main() {
 	//
 	// msgqueue.MQTest()
 
+	// 超时控制
 	// timeoutcontrol.SlowQuery()
 	// timeoutcontrol.TimerTest()
-	timeoutcontrol.ContextTest()
+	// timeoutcontrol.ContextTest()
+
+	// GC Trace
+	gctracetest.GCTraceTest()
 }
 
 // 流程控制
