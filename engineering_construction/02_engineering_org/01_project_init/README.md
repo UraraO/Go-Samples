@@ -1,0 +1,5 @@
+- go mod init myproject 初始化go模块
+- mkdir cmd internal pkg 创建主要目录结构
+- touch cmd/main.go 创建主程序文件  (windows上使用New-Item)
+- 编辑main.go加入逻辑
+- 构建并运行 go build 

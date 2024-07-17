@@ -1,0 +1,2 @@
+- go test -bench=BenchmarkAdd 运行benchmark测试
+- 编写一个字符串拼接的函数，编写benchmark测试校验性能

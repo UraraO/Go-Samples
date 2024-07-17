@@ -1,0 +1,5 @@
+- go doc fmt查看内置包的文档
+- go doc plus查看当前plus包文档
+- 补全doc.go描述内容后，使用go doc plus查看文档
+- go test 运行单元测试
+- 修改单测代码，让单元测试发生错误，观察命令运行结果

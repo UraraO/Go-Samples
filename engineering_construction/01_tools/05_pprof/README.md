@@ -1,0 +1,5 @@
+- go tool pprof ./profile.pprof
+- 输入help命令查看可选参数
+- 输入top命令查看cpu消耗分布
+- 使用可视化pprof工具进行分析，将profile.pprof上传进行分析，查看可视化结果https://pprofweb.evanjones.ca/
+- 分析当前内容可能存在的问题

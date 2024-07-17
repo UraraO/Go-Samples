@@ -1,0 +1,5 @@
+- go test -v运行单测
+- go test -cover 查看测试覆盖率
+- go test -coverprofile=coverage.out 生成覆盖率文件
+- go tool cover -html=coverage.out 转为html文件
+- 还有哪些corner case可以补齐？

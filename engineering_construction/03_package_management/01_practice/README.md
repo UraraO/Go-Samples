@@ -1,0 +1,6 @@
+- go mod init practice
+- 编写main文件
+- 添加依赖go get github.com/fatih/color
+- 运行程序go run main.go
+- 查看go.mod文件cat go.mod
+- 更新依赖go get -u github.com/fatih/color
