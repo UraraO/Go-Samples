@@ -19,6 +19,9 @@ func TestCacheWaterCorrectness(t *testing.T) {
 
 func BenchmarkCacheWaterWithRandData(b *testing.B) {
 	b.StopTimer()
+	// 随机生成测试用例数据
+	// testTimes为测试循环次数，vecSize为单个用例的size
+	// bench时设为10000 * 10000，单个op即为总时间
 	testTimes := 10000
 	vecSize := 10000
 	r := rand.New(rand.NewSource(time.Now().Unix()))
