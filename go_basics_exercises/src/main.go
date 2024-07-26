@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"go_basics_exercises/src/workpool"
 
 	// cache "go_basics_exercises/src/cache_module"
 
@@ -99,7 +98,8 @@ func main() {
 	// GC Trace
 	// gctracetest.GCTraceTest()
 	// park.ParkTest()
-	workpool.WorkPoolTest()
+	// workpool.WorkPoolTest()
+
 }
 
 // 流程控制
@@ -117,7 +117,6 @@ func Print53() {
 			fmt.Println(i)
 		}
 	}
-
 }
 
 // 字符串处理

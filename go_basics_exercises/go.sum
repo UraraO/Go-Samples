@@ -1,2 +1,2 @@
-github.com/nsf/gocode v0.0.0-20230322162601-b672b49f3818 h1:btvxUuer0DCdhu/N5fvMxW759ASqzIsm6cF8D23TNYs=
-github.com/nsf/gocode v0.0.0-20230322162601-b672b49f3818/go.mod h1:6Q8/OMaaKAgTX7/jt2bOXVDrm1eJhoNd+iwzghR7jvs=
+golang.org/x/time v0.5.0 h1:o7cqy6amK/52YcAKIPlM3a+Fpj35zvRj2TP+e1xFSfk=
+golang.org/x/time v0.5.0/go.mod h1:3BpzKBy/shNhVucY/MWOyx10tF3SFh9QdLuxbVysPQM=
