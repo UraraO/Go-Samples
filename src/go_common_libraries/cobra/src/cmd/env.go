@@ -1,3 +1,13 @@
+/*
+ * @Author: chaidaxuan chaidaxuan@wps.cn
+ * @Date: 2024-07-26 18:06:52
+ * @LastEditors: chaidaxuan chaidaxuan@wps.cn
+ * @LastEditTime: 2024-07-31 16:46:14
+ * @FilePath: /cobra/src/cmd/env.go
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 package cobratest
 
 import (

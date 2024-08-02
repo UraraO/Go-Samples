@@ -1,7 +1,7 @@
 package encryptor
 
 import (
-	"Golang-Samples/src/FileServer/src/filespliter"
+	"Golang-Samples/src/FileServer_spliter/src/filespliter"
 
 	"fmt"
 	"io/ioutil"
