@@ -1,13 +1,17 @@
-/*
- * @Author: chaidaxuan chaidaxuan@wps.cn
- * @Date: 2024-07-26 18:06:52
- * @LastEditors: chaidaxuan chaidaxuan@wps.cn
- * @LastEditTime: 2024-07-31 16:40:58
- * @FilePath: /cobra/src/cmd/root.go
- * @Description:
- *
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
- */
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:47:01
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:16:32
+ FilePath: /Golang-Samples/src/_Library/cobra/src/cmd/root.go
+ Description:
+
+ 	cobra命令行框架实例代码
+	包含子命令，命令参数，flag的配置
+
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package cobratest
 
 import (

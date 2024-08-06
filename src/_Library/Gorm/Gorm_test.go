@@ -1,3 +1,16 @@
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:45:57
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:42:47
+ FilePath: /Golang-Samples/src/_Library/Gorm/Gorm_test.go
+ Description:
+
+ grom golang orm框架的使用示例，简单CRUD
+
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package backup
 
 import (

@@ -1,3 +1,16 @@
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:47:01
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:35:16
+ FilePath: /Golang-Samples/src/_Module/cache_module/cache.go
+ Description:
+
+ 简单实现的内存k-v缓存模块
+
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package cache
 
 import (

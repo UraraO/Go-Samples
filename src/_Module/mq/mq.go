@@ -1,3 +1,16 @@
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:47:01
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:44:40
+ FilePath: /Golang-Samples/src/_Module/mq/mq.go
+ Description:
+
+ 简单消息队列实现
+
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package msgqueue
 
 import (

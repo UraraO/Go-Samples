@@ -1,15 +1,16 @@
-/*
-* @Author: chaidaxuan chaidaxuan@wps.cn
-* @Date: 2024-07-26 16:58:51
-* @LastEditors: chaidaxuan chaidaxuan@wps.cn
-* @LastEditTime: 2024-07-26 17:44:41
-* @FilePath: /urarao/GoProjects/Golang-Samples/src/JWT_authentication/JWT_test.go
-* @Description:
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:45:57
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:31:35
+ FilePath: /Golang-Samples/src/_Library/JWT_authentication/JWT_test.go
+ Description:
 
-# JWT鉴权示例，包括Macke生成token，ParseToken解析token
+ JWT鉴权示例，包括Macke生成token，ParseToken解析token
 
-* Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
-*/
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package backup
 
 import (

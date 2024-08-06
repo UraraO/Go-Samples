@@ -1,3 +1,16 @@
+/*===========
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:47:01
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-06 22:34:53
+ FilePath: /Golang-Samples/src/_Module/bus_module/bus.go
+ Description:
+
+ 消息总线模块，支持多接收者，多消息类型和消息内容，实现异步发送消息和异步接收消息
+
+ Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+===========*/
+
 package bus
 
 import (
