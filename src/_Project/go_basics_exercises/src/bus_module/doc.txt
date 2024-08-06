@@ -1,0 +1,30 @@
+消息总线模块
+	多方接入总线
+	
+	Publish：一方可以向输入通道ch发送消息
+	
+	EventListener：监听器组
+		每个监听器一个协程，通过chan接收消息
+
+	成员：
+	监听器组，listeners 	[]EventListener，或map[id]EventListener
+	输入缓冲，ch 		chan Event
+	
+
+
+事件监听器（总线模块中的批量成员）
+	成员：
+	事件处理函数（接口），创建时注册
+	监听的消息对象（由类型等决定）
+
+
+
+消息类（接口）
+	消息类型：Debug，Warn，Info，Error，Fatal
+	消息内容
+	消息id
+
+全局：
+消息注册表
+static 消息ID
+static 监听器ID
