@@ -1,19 +1,20 @@
-/*
-* @Author: chaidaxuan chaidaxuan@wps.cn
-* @Date: 2024-07-30 17:12:42
- * @LastEditors: chaidaxuan chaidaxuan@wps.cn
- * @LastEditTime: 2024-07-30 17:29:25
- * @FilePath: /urarao/GoProjects/Golang-Samples/src/Net/rpc/rpcServer/server.go
+/*=============
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-06 19:47:01
+ LastEditors: UraraO Haru_UraraO@outlook.com
+ LastEditTime: 2024-08-07 22:05:51
+ FilePath: /Golang-Samples/src/_Utils/Net/rpc/rpcServer/server.go
+ Description:
 
-* @Description:
+ RPC server by golang.org
 
-*
-* Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
-*/
+ Copyright (c) 2024 by UraraO, All Rights Reserved.
+=============*/
+
 package main
 
 import (
-	rpccommon "Golang-Samples/src/Net/rpc/rpcCommon"
+	rpccommon "Golang-Samples/src/_Utils/Net/rpc/rpcCommon"
 	"net/http"
 	"net/rpc"
 )

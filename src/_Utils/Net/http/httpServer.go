@@ -1,13 +1,15 @@
-/*===========
- Author: chaidaxuan chaidaxuan@wps.cn
- Date: 2024-08-07 15:16:09
+/*=============
+ Author: UraraO Haru_UraraO@outlook.com
+ Date: 2024-08-07 19:38:09
  LastEditors: UraraO Haru_UraraO@outlook.com
- LastEditTime: 2024-08-07 20:18:04
+ LastEditTime: 2024-08-07 22:06:53
  FilePath: /Golang-Samples/src/_Utils/Net/http/httpServer.go
  Description:
 
- Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
-===========*/
+ 一个简单的http服务，使用golang标准库net/http
+
+ Copyright (c) 2024 by UraraO, All Rights Reserved.
+=============*/
 
 package httptest
 
