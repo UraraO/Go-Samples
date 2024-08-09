@@ -1,7 +1,7 @@
 /*
 文件夹创建示例
 */
-package backup
+package file_utils
 
 import (
 	"fmt"
